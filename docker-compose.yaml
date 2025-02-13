@@ -1,0 +1,41 @@
+services:
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin123
+    ports:
+      - 27018:27017
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - spring-mongo
+
+  ProducerSA:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: producersa:latest
+    restart: always
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://admin:admin123@mongo:27017/scheduler_db
+      SPRING_RABBITMQ_HOST: rabbitmq-2
+      SPRING_RABBITMQ_PORT: 5672
+      SPRING_RABBITMQ_USERNAME: guest
+      SPRING_RABBITMQ_PASSWORD: guest
+    ports:
+      - 8087:8088
+    expose:
+      - 8088
+    depends_on:
+      - mongo
+    networks:
+      - spring-mongo
+
+volumes:
+  mongo-data:
+
+networks:
+  spring-mongo:
+    driver: bridge
