@@ -47,7 +47,7 @@ public class TransactionService {
                     transaction.getAmount()
             );
 
-            producerService.sendTransaction(transactionDTO); // Agora usa o TransactionProducerService
+            producerService.sendTransaction(transactionDTO);
 
             transaction.setProcessed(true);
             repository.save(transaction);
