@@ -19,7 +19,7 @@ services:
     image: producersa:latest
     restart: always
     environment:
-      SPRING_DATA_MONGODB_URI: mongodb://admin:admin123@mongo:27017/scheduler_db
+      SPRING_DATA_MONGODB_URI: mongodb://admin:admin123@mongo:27018/scheduler_db
       SPRING_RABBITMQ_HOST: rabbitmq-2
       SPRING_RABBITMQ_PORT: 5672
       SPRING_RABBITMQ_USERNAME: guest

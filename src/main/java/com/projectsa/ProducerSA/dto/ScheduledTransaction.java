@@ -2,9 +2,11 @@ package com.projectsa.ProducerSA.dto;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import java.time.LocalDateTime;
 
-@Document(collection = "scheduled_transactions") // Nome da coleção no MongoDB
+import java.time.LocalDateTime;
+import java.util.UUID;
+
+@Document(collection = "scheduled_transactions")
 public class ScheduledTransaction {
 
     @Id
@@ -15,14 +17,13 @@ public class ScheduledTransaction {
     private LocalDateTime scheduledAt;
     private boolean processed;
 
-    public ScheduledTransaction(String id, String originAccountNumber,
-                                double amount) {
-        this.id = id;
+    public ScheduledTransaction(String originAccountNumber, String destinationAccountNumber, double amount) {
+        this.id = UUID.randomUUID().toString();
         this.originAccountNumber = originAccountNumber;
         this.destinationAccountNumber = destinationAccountNumber;
         this.amount = amount;
-        this.scheduledAt = scheduledAt;
-        this.processed = processed;
+        this.scheduledAt = LocalDateTime.now();
+        this.processed = false;
     }
 
     public String getId() {

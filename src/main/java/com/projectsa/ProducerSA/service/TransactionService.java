@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -37,6 +38,7 @@ public class TransactionService {
     }
 
     @Scheduled(cron = "0 0 6 * * ?")
+    @Transactional
     public void processScheduledTransactions() {
         List<ScheduledTransaction> transactions = repository.findByProcessedFalse();
 
@@ -47,12 +49,14 @@ public class TransactionService {
                     transaction.getAmount()
             );
 
-            producerService.sendTransaction(transactionDTO);
-
-            transaction.setProcessed(true);
-            repository.save(transaction);
-
-            logger.info("[TRANSACTION SENT] ID: {}, Amount: {}", transaction.getId(), transaction.getAmount());
+            try {
+                producerService.sendTransaction(transactionDTO);
+                transaction.setProcessed(true);
+                repository.save(transaction);
+                logger.info("[TRANSACTION SENT] ID: {}, Amount: {}", transaction.getId(), transaction.getAmount());
+            } catch (Exception e) {
+                logger.error("[FAILED TO SEND TRANSACTION] ID: {}, Error: {}", transaction.getId(), e.getMessage());
+            }
         }
     }
 }
