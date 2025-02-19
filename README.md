@@ -19,7 +19,7 @@ Desenvolvi uma API com Java e Spring, essa API é responsável por produzir mens
 - Operação de transferência entre contas cadastradas
 - Registro de operações no banco de dados
 - Sistema de mensageria
-- Queue de operações
+- Producer de mensagens
 - Agendamento de tarefas
 
 ## Modelo de teste Json
