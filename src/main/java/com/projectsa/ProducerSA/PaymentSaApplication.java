@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @EnableRabbit
-public class ProducerSaApplication {
+public class PaymentSaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProducerSaApplication.class, args);
+		SpringApplication.run(PaymentSaApplication.class, args);
 	}
 
 }

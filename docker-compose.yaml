@@ -12,11 +12,11 @@ services:
     networks:
       - spring-mongo
 
-  ProducerSA:
+  PaymentSA:
     build:
       context: .
       dockerfile: Dockerfile
-    image: producersa:latest
+    image: paymentsa:latest
     restart: always
     environment:
       SPRING_DATA_MONGODB_URI: mongodb://admin:admin123@mongo:27018/scheduler_db
