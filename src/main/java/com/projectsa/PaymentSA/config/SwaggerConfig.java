@@ -1,4 +1,4 @@
-package com.projectsa.ProducerSA.config;
+package com.projectsa.PaymentSA.config;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.OpenAPI;

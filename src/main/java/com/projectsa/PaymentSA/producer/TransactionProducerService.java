@@ -1,7 +1,7 @@
-package com.projectsa.ProducerSA.producer;
+package com.projectsa.PaymentSA.producer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.projectsa.ProducerSA.dto.TransactionDTO;
+import com.projectsa.PaymentSA.dto.TransactionDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
