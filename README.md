@@ -30,6 +30,7 @@ Desenvolvi uma API com Java e Spring, essa API é responsável por produzir mens
   "originAccountNumber": "57411542",
   "destinationAccountNumber": "57432637",
   "amount": 200.0
+  "scheduledDate": "2025-03-08"
 }
 ```
 
