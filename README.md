@@ -1,7 +1,7 @@
 # PaymentSA - Backend
 
 ## Descrição do Projeto
-Desenvolvi uma API com Java e Spring, essa API é responsável por produzir mensagens de transferências bancárias para minha fila transaction_queue do RabbitMQ, ela envia mensagens em formato Json para a queue, as mensage são produzidas em formato HTTP e enviadas para a queue. O projeto conta com um banco de dados NoSQL, utilizei o MongoDB, ele é responsável por armazenar as mensagens das solicitações que são feitas ao decorrer do dia, para que a API publique todas as mensagens em um certo horário definido através de um sistema de agendamento. Todo sistema está em um contêiner no Docker.
+Desenvolvi uma API com Java e Spring, essa API é responsável por realizar agendamento de pagamentos, e realiza os pagamentos conforme a data definida, a API produz mensagens de transferências bancárias para fila transaction_queue do RabbitMQ, ela envia mensagens em formato Json para a queue, as mensage são produzidas em formato HTTP e enviadas para a queue. O projeto conta com um banco de dados NoSQL, utilizei o MongoDB, ele é responsável por armazenar as mensagens das solicitações que são feitas ao decorrer do dia, para que a API publique todas as mensagens em um certo horário definido através de um sistema de agendamento. Todo sistema está em um contêiner no Docker.
 
 - Intalção do projeto no docker-compose, com o seguinte comando no terminal bash: **docker-compose up -d --build**
 
