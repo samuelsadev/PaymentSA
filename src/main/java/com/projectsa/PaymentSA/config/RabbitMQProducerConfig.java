@@ -1,4 +1,4 @@
-package com.projectsa.ProducerSA.config;
+package com.projectsa.PaymentSA.config;
 
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.Queue;

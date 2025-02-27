@@ -1,28 +1,27 @@
-package com.projectsa.ProducerSA.dto;
+package com.projectsa.PaymentSA.dto;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Document(collection = "scheduled_transactions")
 public class ScheduledTransaction {
-
     @Id
     private String id;
     private String originAccountNumber;
     private String destinationAccountNumber;
     private double amount;
-    private LocalDateTime scheduledAt;
+    private LocalDate scheduledDate;
     private boolean processed;
 
-    public ScheduledTransaction(String originAccountNumber, String destinationAccountNumber, double amount) {
+    public ScheduledTransaction(String originAccountNumber, String destinationAccountNumber, double amount, LocalDate scheduledDate) {
         this.id = UUID.randomUUID().toString();
         this.originAccountNumber = originAccountNumber;
         this.destinationAccountNumber = destinationAccountNumber;
         this.amount = amount;
-        this.scheduledAt = LocalDateTime.now();
+        this.scheduledDate = scheduledDate;
         this.processed = false;
     }
 
@@ -30,40 +29,20 @@ public class ScheduledTransaction {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getOriginAccountNumber() {
         return originAccountNumber;
-    }
-
-    public void setOriginAccountNumber(String originAccountNumber) {
-        this.originAccountNumber = originAccountNumber;
     }
 
     public String getDestinationAccountNumber() {
         return destinationAccountNumber;
     }
 
-    public void setDestinationAccountNumber(String destinationAccountNumber) {
-        this.destinationAccountNumber = destinationAccountNumber;
-    }
-
     public double getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
-    public LocalDateTime getScheduledAt() {
-        return scheduledAt;
-    }
-
-    public void setScheduledAt(LocalDateTime scheduledAt) {
-        this.scheduledAt = scheduledAt;
+    public LocalDate getScheduledDate() {
+        return scheduledDate;
     }
 
     public boolean isProcessed() {

@@ -1,4 +1,4 @@
-package com.projectsa.ProducerSA;
+package com.projectsa.PaymentSA;
 
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.boot.SpringApplication;

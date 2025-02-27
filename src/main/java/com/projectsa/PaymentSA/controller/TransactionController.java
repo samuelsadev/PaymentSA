@@ -1,8 +1,8 @@
-package com.projectsa.ProducerSA.controller;
+package com.projectsa.PaymentSA.controller;
 
-import com.projectsa.ProducerSA.dto.ScheduledTransaction;
-import com.projectsa.ProducerSA.dto.TransactionDTO;
-import com.projectsa.ProducerSA.service.TransactionService;
+import com.projectsa.PaymentSA.dto.ScheduledTransaction;
+import com.projectsa.PaymentSA.dto.TransactionDTO;
+import com.projectsa.PaymentSA.service.TransactionService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
