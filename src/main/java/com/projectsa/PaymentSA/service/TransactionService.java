@@ -58,6 +58,8 @@ public class TransactionService {
     @Scheduled(cron = "0 0 6 * * ?")
     @Transactional
     public void processScheduledTransactions() {
+        logger.info("[PROCESSING SCHEDULED TRANSACTIONS] Starting transaction processing at 6 AM");
+
         LocalDate today = LocalDate.now();
         List<ScheduledTransaction> transactions = repository.findByProcessedFalseAndScheduledDate(today);
 
