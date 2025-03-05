@@ -16,11 +16,10 @@ Desenvolvi uma API com Java e Spring, essa API é responsável por realizar agen
 
 ## Funcionalidades
 
-- Operação de transferência entre contas cadastradas
+- Agendamento de pagamentos de contas cadastradas
 - Registro de operações no banco de dados
 - Sistema de mensageria
 - Producer de mensagens
-- Agendamento de tarefas
 
 ## Modelo de teste Json
 
